@@ -67,6 +67,95 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// Modmatrix
+void Modmatrix(NumericMatrix A, unsigned int i, unsigned int j, double s);
+RcppExport SEXP _rcpp101_Modmatrix(SEXP ASEXP, SEXP iSEXP, SEXP jSEXP, SEXP sSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericMatrix >::type A(ASEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type i(iSEXP);
+    Rcpp::traits::input_parameter< unsigned int >::type j(jSEXP);
+    Rcpp::traits::input_parameter< double >::type s(sSEXP);
+    Modmatrix(A, i, j, s);
+    return R_NilValue;
+END_RCPP
+}
+// equalTest
+void equalTest(arma::uword i, double s);
+RcppExport SEXP _rcpp101_equalTest(SEXP iSEXP, SEXP sSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::uword >::type i(iSEXP);
+    Rcpp::traits::input_parameter< double >::type s(sSEXP);
+    equalTest(i, s);
+    return R_NilValue;
+END_RCPP
+}
+// is_na_arma
+bool is_na_arma(arma::mat A, int i, int j);
+RcppExport SEXP _rcpp101_is_na_arma(SEXP ASEXP, SEXP iSEXP, SEXP jSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type A(ASEXP);
+    Rcpp::traits::input_parameter< int >::type i(iSEXP);
+    Rcpp::traits::input_parameter< int >::type j(jSEXP);
+    rcpp_result_gen = Rcpp::wrap(is_na_arma(A, i, j));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sub_mat
+arma::mat sub_mat(arma::mat A, int i1, int i2, int j1, int j2);
+RcppExport SEXP _rcpp101_sub_mat(SEXP ASEXP, SEXP i1SEXP, SEXP i2SEXP, SEXP j1SEXP, SEXP j2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type A(ASEXP);
+    Rcpp::traits::input_parameter< int >::type i1(i1SEXP);
+    Rcpp::traits::input_parameter< int >::type i2(i2SEXP);
+    Rcpp::traits::input_parameter< int >::type j1(j1SEXP);
+    Rcpp::traits::input_parameter< int >::type j2(j2SEXP);
+    rcpp_result_gen = Rcpp::wrap(sub_mat(A, i1, i2, j1, j2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// mod_mat
+Rcpp::List mod_mat(arma::mat& A, int& i, int& j, double& x);
+RcppExport SEXP _rcpp101_mod_mat(SEXP ASEXP, SEXP iSEXP, SEXP jSEXP, SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type A(ASEXP);
+    Rcpp::traits::input_parameter< int& >::type i(iSEXP);
+    Rcpp::traits::input_parameter< int& >::type j(jSEXP);
+    Rcpp::traits::input_parameter< double& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(mod_mat(A, i, j, x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// return_mat
+arma::mat return_mat(arma::mat& A);
+RcppExport SEXP _rcpp101_return_mat(SEXP ASEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type A(ASEXP);
+    rcpp_result_gen = Rcpp::wrap(return_mat(A));
+    return rcpp_result_gen;
+END_RCPP
+}
+// mod_mat2
+void mod_mat2(int& i, int& j, double& x);
+RcppExport SEXP _rcpp101_mod_mat2(SEXP iSEXP, SEXP jSEXP, SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int& >::type i(iSEXP);
+    Rcpp::traits::input_parameter< int& >::type j(jSEXP);
+    Rcpp::traits::input_parameter< double& >::type x(xSEXP);
+    mod_mat2(i, j, x);
+    return R_NilValue;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_rcpp101_matrixCall", (DL_FUNC) &_rcpp101_matrixCall, 2},
@@ -74,6 +163,13 @@ static const R_CallMethodDef CallEntries[] = {
     {"_rcpp101_matrixCall3", (DL_FUNC) &_rcpp101_matrixCall3, 2},
     {"_rcpp101_matrixCall4", (DL_FUNC) &_rcpp101_matrixCall4, 2},
     {"_rcpp101_accessRmatrix", (DL_FUNC) &_rcpp101_accessRmatrix, 3},
+    {"_rcpp101_Modmatrix", (DL_FUNC) &_rcpp101_Modmatrix, 4},
+    {"_rcpp101_equalTest", (DL_FUNC) &_rcpp101_equalTest, 2},
+    {"_rcpp101_is_na_arma", (DL_FUNC) &_rcpp101_is_na_arma, 3},
+    {"_rcpp101_sub_mat", (DL_FUNC) &_rcpp101_sub_mat, 5},
+    {"_rcpp101_mod_mat", (DL_FUNC) &_rcpp101_mod_mat, 4},
+    {"_rcpp101_return_mat", (DL_FUNC) &_rcpp101_return_mat, 1},
+    {"_rcpp101_mod_mat2", (DL_FUNC) &_rcpp101_mod_mat2, 3},
     {NULL, NULL, 0}
 };
 

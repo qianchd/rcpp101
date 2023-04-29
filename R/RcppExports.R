@@ -21,3 +21,31 @@ accessRmatrix <- function(i, j, x) {
     invisible(.Call(`_rcpp101_accessRmatrix`, i, j, x))
 }
 
+Modmatrix <- function(A, i, j, s) {
+    invisible(.Call(`_rcpp101_Modmatrix`, A, i, j, s))
+}
+
+equalTest <- function(i, s) {
+    invisible(.Call(`_rcpp101_equalTest`, i, s))
+}
+
+is_na_arma <- function(A, i, j) {
+    .Call(`_rcpp101_is_na_arma`, A, i, j)
+}
+
+sub_mat <- function(A, i1, i2, j1, j2) {
+    .Call(`_rcpp101_sub_mat`, A, i1, i2, j1, j2)
+}
+
+mod_mat <- function(A, i, j, x) {
+    .Call(`_rcpp101_mod_mat`, A, i, j, x)
+}
+
+return_mat <- function(A) {
+    .Call(`_rcpp101_return_mat`, A)
+}
+
+mod_mat2 <- function(i, j, x) {
+    invisible(.Call(`_rcpp101_mod_mat2`, i, j, x))
+}
+
